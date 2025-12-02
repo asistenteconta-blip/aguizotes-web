@@ -37,6 +37,17 @@ header {
   color: #fff;
   padding: 25px 0;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    background: #000;
+    width: 100%;
+    padding-bottom: 20px;
+  }
 }
 
 /* Logo centrado */
@@ -199,6 +210,11 @@ footer {
 
 .about-text .btn {
   margin-top: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .about-image {
