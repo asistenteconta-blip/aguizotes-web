@@ -1,54 +1,39 @@
-// Selección de capas
-const bg1 = document.querySelector(".bg1");
-const bg2 = document.querySelector(".bg2");
+window.addEventListener("DOMContentLoaded", () => {
 
-// Imágenes del hero
-const images = [
-  "img/Hero1.png",
-  "img/Hero2.jpg",
-  "img/Hero3.jpg",
-  "img/Hero4.jpg"
-];
+    const bg1 = document.querySelector(".bg1");
+    const bg2 = document.querySelector(".bg2");
 
-let current = 0;
+    const images = [
+        "img/Hero1.png",
+        "img/Hero2.jpg",
+        "img/Hero3.jpg",
+        "img/Hero4.jpg"
+    ];
 
-// Cargar primera imagen
-bg1.style.backgroundImage = `url(${images[0]})`;
+    let current = 0;
 
-// Precarga para evitar flashes
-images.forEach(src => {
-  const img = new Image();
-  img.src = src;
+    // primera imagen
+    bg1.style.backgroundImage = `url(${images[0]})`;
+
+    // precarga
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    function nextImage() {
+        const next = (current + 1) % images.length;
+
+        bg2.style.backgroundImage = `url(${images[next]})`;
+        bg2.style.opacity = 1;
+
+        setTimeout(() => {
+            bg1.style.backgroundImage = bg2.style.backgroundImage;
+            bg2.style.opacity = 0;
+            current = next;
+        }, 1500);
+    }
+
+    setInterval(nextImage, 5000);
+
 });
-
-// Cambio con fade suave
-function nextImage() {
-  const next = (current + 1) % images.length;
-
-  // bg2 toma la nueva imagen
-  bg2.style.backgroundImage = `url(${images[next]})`;
-
-  // fade in
-  bg2.style.opacity = 1;
-
-  // luego de animación, intercambiamos
-  setTimeout(() => {
-    bg1.style.backgroundImage = bg2.style.backgroundImage;
-    bg2.style.opacity = 0;
-    current = next;
-  }, 1500);
-}
-
-// Cambio cada 5s
-setInterval(nextImage, 5000);
-
-
-
-
-
-
-
-
-
-
-
