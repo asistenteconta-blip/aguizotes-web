@@ -1660,6 +1660,54 @@ option {
   }
 }
 
+/* ===== MENU HAMBURGUESA ===== */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* MODO MÓVIL */
+@media (max-width: 768px) {
+
+  /* Mostrar hamburguesa */
+  .hamburger {
+    display: block;
+  }
+
+  /* Ocultar menú al inicio */
+  nav {
+    display: none;
+    width: 100%;
+    background: #000;
+    padding-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  /* Menú activo */
+  nav.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Lista vertical */
+  nav ul {
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 15px;
+  }
+}
+
 
 
 
