@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas | Agüizotes</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR (igual que en index) -->
+  <header>
+    <div class="logo">
+      <img src="img/Logo Aguizotes.png" alt="Logo Agüizotes">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="reservas.html" class="active">Reservas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="reseñas.html">Reseñas</a></li>
+        <li><a href="https://sites.google.com/lacovacr.com/lacova-speakeasy/bar" target="_blank">La COVA</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- ============ RESERVAS ============ -->
+<section id="reservas">
+
+    <div class="reservas-container">
+
+        <h1>Reservas</h1>
+        <p>Seleccioná el tipo de reserva que deseas realizar.</p>
+
+        <!-- BOTONES DE SELECCIÓN -->
+        <div class="tipo-reserva-botones">
+            <button class="switch-btn active" onclick="mostrarReserva('mesa')">Reservar Mesa</button>
+            <button class="switch-btn" onclick="mostrarReserva('evento')">Reservar Evento</button>
+        </div>
+
+        <!-- ================= FORMULARIO MESA ================= -->
+        <form id="form-mesa" class="formulario-activo">
+
+    <h2 class="titulo-form">Reserva de Mesa</h2>
+
+    <div class="input-group"><label>Nombre Completo</label><input id="mesa-nombre" type="text" required></div>
+    <div class="input-group"><label>Teléfono</label><input id="mesa-telefono" type="tel" required></div>
+    <div class="input-group"><label>Fecha</label><input id="mesa-fecha" type="date" required></div>
+
+    <div class="input-group">
+        <label>Hora</label>
+        <select id="mesa-hora" required>
+            <option value="">Seleccione una hora</option>
+            <option>12:00 md</option><option>1:00 pm</option><option>2:00 pm</option>
+            <option>3:00 pm</option><option>4:00 pm</option><option>5:00 pm</option>
+            <option>6:00 pm</option><option>7:00 pm</option><option>8:00 pm</option>
+        </select>
+    </div>
+
+    <div class="input-group"><label>Número de personas</label><input id="mesa-personas" type="number" min="1" required></div>
+    <div class="input-group"><label>Comentarios</label><textarea id="mesa-comentarios" rows="5" placeholder="Opcional"></textarea></div>
+
+    <p class="mensaje-confirmacion">Recibirás un mensaje de confirmación de tu reserva por WhatsApp.</p>
+    <button id="btn-whatsapp-mesa" class="btn-reservar">Enviar la reserva al WhatsApp</button>
+
+</form>
+
+
+        <!-- ================= FORMULARIO EVENTO ================= -->
+        <form id="form-evento">
+
+    <h2 class="titulo-form">Reserva de Evento Especial</h2>
+
+    <div class="input-group"><label>Nombre Empresa/Grupo</label><input id="ev-empresa" type="text" required></div>
+    <div class="input-group"><label>Responsable</label><input id="ev-nombre" type="text" required></div>
+    <div class="input-group"><label>Teléfono</label><input id="ev-telefono" type="tel" required></div>
+    <div class="input-group"><label>Fecha</label><input id="ev-fecha" type="date" required></div>
+
+    <div class="input-group"><label>Hora</label>
+        <select id="ev-hora" required>
+            <option value="">Seleccione una hora</option>
+            <option>12:00 md</option><option>1:00 pm</option><option>2:00 pm</option>
+            <option>3:00 pm</option><option>4:00 pm</option><option>5:00 pm</option>
+            <option>6:00 pm</option><option>7:00 pm</option><option>8:00 pm</option>
+        </select>
+    </div>
+
+    <div class="input-group"><label>Detalles del evento</label>
+        <textarea id="ev-detalles" rows="8" placeholder="Ej: Cumpleaños, 25 personas, terraza, menú especial..."></textarea>
+    </div>
+
+    <p class="mensaje-confirmacion">Confirmaremos tu reserva por WhatsApp.</p>
+    <button id="btn-whatsapp-evento" class="btn-reservar">Enviar la reserva al WhatsApp</button>
+</form>
+
+    </div>
+</section>
+
+<!-- ======= Sección Redes Sociales ======= -->
+<section id="redes">
+  <div class="container redes-container">
+    <h2>Síguenos en Redes Sociales</h2>
+    <p>Conéctate con nosotros y entérate de las últimas promociones, eventos y novedades.</p>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com/media/set/?set=a.595813100756060&type=3" 
+         target="_blank" class="social-icon fb">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.instagram.com/aguizotes/" 
+         target="_blank" class="social-icon ig">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://wa.me/50687133551" 
+         target="_blank" class="social-icon wa">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <p>© 2025 Agüizotes Gastro Pub. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="reservas.js"></script>
+</body>
+</html>
+
