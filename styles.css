@@ -1708,6 +1708,58 @@ option {
   }
 }
 
+/* Ocultar menú normal en móvil */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+}
+
+/* ===== MENÚ HAMBURGUESA DESPLEGABLE ===== */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* SOLO en móvil */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: block; /* mostrar icono */
+  }
+
+  nav {
+    width: 100%;
+    background: #000;
+    padding: 20px 0;
+    display: none; /* oculto por defecto */
+    text-align: center;
+  }
+
+  nav.active {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+  }
+
+}
+
 
 
 

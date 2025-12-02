@@ -38,18 +38,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ===== MENU HAMBURGUESA =====
+// ===== MENÚ HAMBURGUESA =====
 const hamburgerBtn = document.getElementById("hamburger-btn");
 const navMenu = document.getElementById("nav-menu");
 
-// abrir/cerrar
 hamburgerBtn.addEventListener("click", () => {
   navMenu.classList.toggle("active");
 });
 
-// cerrar menú cuando se elige algo
+// cerrar menú al hacer click en un link
 document.querySelectorAll("#nav-menu a").forEach(link => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("active");
   });
 });
+
+
