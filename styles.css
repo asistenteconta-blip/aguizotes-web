@@ -1708,13 +1708,6 @@ option {
   }
 }
 
-/* Ocultar menú normal en móvil */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-  }
-}
-
 /* ===== MENÚ HAMBURGUESA DESPLEGABLE ===== */
 
 .hamburger {
