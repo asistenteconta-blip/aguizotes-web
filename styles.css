@@ -92,62 +92,78 @@ nav ul li a.active {
 #hero {
   position: relative;
   height: 80vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
 }
 
-/* Capas de fondo */
+/* Capas del slider */
 .hero-bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   z-index: 0;
 }
 
-/* Primera imagen visible */
-.hero-bg.bg1 {
+/* Primera capa visible */
+.bg1 {
   opacity: 1;
 }
 
-/* ======= Overlay oscuro ======= */
+/* Segunda capa para el fade */
+.bg2 {
+  opacity: 0;
+}
+
+/* Overlay oscuro */
 #hero::before {
   content: "";
   position: absolute;
-  inset: 0; /* ocupa todo el hero */
-  background: rgba(0, 0, 0, 0.45); /* opacidad 45% */
-  z-index: 1; /* capa por encima del fondo */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
 }
 
-/* ======= Texto y botón por encima del overlay ======= */
-#hero h2,
-#hero p,
-#hero .btn {
+/* Texto del hero */
+#hero .overlay-text {
   position: relative;
-  z-index: 2; /* aseguran que se vean sobre el overlay */
+  z-index: 2;
+  color: #fff;
 }
 
-
-#hero h2 {
-  font-size: 2.5rem;
+#hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: #fff;
   margin-bottom: 10px;
+  letter-spacing: 1px;
+  z-index: 2;
 }
 
 #hero p {
+  font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-weight: 300;
+  color: #ddd;
+  margin-bottom: 25px;
+  z-index: 2;
 }
 
-
-#hero * {
+#hero .btn {
   position: relative;
   z-index: 2;
 }
+
 
 .btn {
   display: inline-block;
