@@ -93,15 +93,26 @@ nav ul li a.active {
   position: relative;
   height: 80vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
+  overflow: hidden;
+}
+
+/* Capas de fondo */
+.hero-bg {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  transition: background-image 1s ease-in-out;
-  overflow: hidden; /* evita que el overlay sobresalga */
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 0;
+}
+
+/* Primera imagen visible */
+.hero-bg.bg1 {
+  opacity: 1;
 }
 
 /* ======= Overlay oscuro ======= */
@@ -131,21 +142,11 @@ nav ul li a.active {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
- #hero {
-  position: relative;
-  overflow: hidden;
-}
 
-#hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65); /* oscurece un poco para resaltar texto */
-}
 
 #hero * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .btn {

@@ -1,6 +1,9 @@
-const hero = document.getElementById("hero");
+// Selección de capas
+const bg1 = document.querySelector(".bg1");
+const bg2 = document.querySelector(".bg2");
 
-const backgrounds = [
+// Imágenes del hero
+const images = [
   "img/Hero1.png",
   "img/Hero2.jpg",
   "img/Hero3.jpg",
@@ -9,29 +12,36 @@ const backgrounds = [
 
 let current = 0;
 
-backgrounds.forEach(src => {
+// Cargar primera imagen
+bg1.style.backgroundImage = `url(${images[0]})`;
+
+// Precarga para evitar flashes
+images.forEach(src => {
   const img = new Image();
   img.src = src;
 });
 
+// Cambio con fade suave
+function nextImage() {
+  const next = (current + 1) % images.length;
 
-// Mostrar la primera imagen al cargar
-function showInitialBackground() {
-  hero.style.backgroundImage = `url(${backgrounds[0]})`;
-  hero.style.transition = "background-image 1s ease-in-out";
+  // bg2 toma la nueva imagen
+  bg2.style.backgroundImage = `url(${images[next]})`;
+
+  // fade in
+  bg2.style.opacity = 1;
+
+  // luego de animación, intercambiamos
+  setTimeout(() => {
+    bg1.style.backgroundImage = bg2.style.backgroundImage;
+    bg2.style.opacity = 0;
+    current = next;
+  }, 1500);
 }
 
-// Cambiar la imagen de fondo cada 5 segundos
-function changeBackground() {
-  current = (current + 1) % backgrounds.length;
-  hero.style.backgroundImage = `url(${backgrounds[current]})`;
-}
+// Cambio cada 5s
+setInterval(nextImage, 5000);
 
-// Esperar a que el documento cargue completamente antes de iniciar
-window.addEventListener("load", () => {
-  showInitialBackground();             // muestra la primera
-  setInterval(changeBackground, 5000); // luego cambia cada 5 seg
-});
 
 
 
