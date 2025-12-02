@@ -9,30 +9,30 @@ const backgrounds = [
 
 let current = 0;
 
-const bg1 = document.querySelector(".bg1");
-const bg2 = document.querySelector(".bg2");
+backgrounds.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
 
-// Cargar primera imagen
-bg1.style.backgroundImage = `url(${images[0]})`;
 
-function nextImage() {
-  const next = (current + 1) % images.length;
-
-  // bg2 carga la nueva imagen
-  bg2.style.backgroundImage = `url(${images[next]})`;
-
-  // Hacemos fade: bg2 entra
-  bg2.style.opacity = 1;
-
-  // Luego de la animación, cambiamos roles
-  setTimeout(() => {
-    bg1.style.backgroundImage = bg2.style.backgroundImage;
-    bg2.style.opacity = 0; // se apaga para siguiente ciclo
-    current = next;
-  }, 1500); // mismo tiempo que el CSS transition
+// Mostrar la primera imagen al cargar
+function showInitialBackground() {
+  hero.style.backgroundImage = `url(${backgrounds[0]})`;
+  hero.style.transition = "background-image 1s ease-in-out";
 }
 
-setInterval(nextImage, 5000);
+// Cambiar la imagen de fondo cada 5 segundos
+function changeBackground() {
+  current = (current + 1) % backgrounds.length;
+  hero.style.backgroundImage = `url(${backgrounds[current]})`;
+}
+
+// Esperar a que el documento cargue completamente antes de iniciar
+window.addEventListener("load", () => {
+  showInitialBackground();             // muestra la primera
+  setInterval(changeBackground, 5000); // luego cambia cada 5 seg
+});
+
 
 
 
